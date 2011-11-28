@@ -86,11 +86,11 @@
   "Syntactic keywords for csr-mode.")
 
 (defvar csr-font-lock-keywords csr-font-lock-keywords-3
-  "Default highlighting expressions for CSRCompiler mode.")
+  "Default highlighting expressions for csr-mode.")
 
 
 (defun csr-indent-line ()
-  "Indent current line as CSRCompiler code."
+  "Indent current line as CSRSpec code."
   (interactive)
   (beginning-of-line)
   (if (bobp)
