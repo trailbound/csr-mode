@@ -48,14 +48,14 @@
   "List of CSR control statements.")
 
 (defconst csr-type-list
-  '("enum" "userdefined" "bool" "integer" "number" "string" "reference" "var")
+  '("property" "enum" "userdefined" "bool" "integer" "number" "string" "reference" "var")
   "List of CSR types.")
 
 
 (defconst csr-font-lock-keywords-1
   (list
    (list (concat "\\<" (regexp-opt csr-object-list t) "\\>") 1 'font-lock-function-name-face)
-   '("\\('\\w*'\\)" 1 font-lock-variable-name-face)
+   '("\\<\\(property\\)\\>\\s-*\\<\\(\\w*\\)\\>" 2 font-lock-variable-name-face)
    )
   "Minimal highlighting expressions for CSR mode.")
 
@@ -71,7 +71,7 @@
   (append csr-font-lock-keywords-2
 		  (list
        ;; Highlights address specifications (example: [0x2000])
-       '("\\(\\[[0-9x]+\\]\\)" 1 font-lock-constant-face)
+       '("\\(\\[[0-9x:]+\\]\\)" 1 font-lock-constant-face)
        ))
   "Full highlighting in CSR mode.")
 
